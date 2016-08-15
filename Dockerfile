@@ -9,8 +9,6 @@ RUN yum clean all \
         sudo \
         hadoop-hdfs-datanode \
         hadoop-yarn-nodemanager \
-        hadoop-hdfs \
-        hadoop-yarn \
  && rm -rf /var/cache/yum/
 
 RUN mkdir -p /hadoop/tmp
@@ -35,7 +33,7 @@ RUN chown root.root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
 
-EXPOSE 8020 50070
+EXPOSE 50010 50020 50075 8040 8041 8042
 
 #define HDFS volume to enable to persist namenode fsimage between restart
 VOLUME /hadoop
